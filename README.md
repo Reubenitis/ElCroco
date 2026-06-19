@@ -24,17 +24,36 @@ npm run dev      # http://localhost:3000
 npm run build    # outputs static site to ./out (with .nojekyll for Pages)
 ```
 
-## Deployment — GitHub Pages
+## Deployment — GitHub Pages + ElCroco.com
 
-The repo ships with `.github/workflows/deploy.yml`. On push to `main`:
+The repo ships with `.github/workflows/deploy.yml`. On push to `main` it builds
+the static site and deploys it to GitHub Pages.
 
-1. In the repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
-2. Push to `main`. The site builds and deploys to
-   `https://reubenitis.github.io/ElCroco/`.
+**First-time setup:**
 
-The base path `/ElCroco` is set automatically for production builds in
-`next.config.mjs`. If you rename the repo or move to a custom/apex domain,
-set `NEXT_PUBLIC_BASE_PATH` accordingly (use `""` for a root domain).
+1. Create the repo `ElCroco` under the `Reubenitis` account and push `main`.
+2. **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+3. **Settings → Pages → Custom domain → `elcroco.com`** → Save. (The
+   `public/CNAME` file already pins this on every deploy.)
+4. Add the DNS records below at your domain registrar.
+5. Once the cert provisions (can take up to an hour), tick **Enforce HTTPS**.
+
+**DNS records for the apex domain `elcroco.com`:**
+
+| Type  | Host  | Value |
+| ----- | ----- | ----- |
+| A     | `@`   | `185.199.108.153` |
+| A     | `@`   | `185.199.109.153` |
+| A     | `@`   | `185.199.110.153` |
+| A     | `@`   | `185.199.111.153` |
+| CNAME | `www` | `reubenitis.github.io.` |
+
+(Optionally also add the four `AAAA` records for IPv6:
+`2606:50c0:8000::153` … `:8003::153`.)
+
+The site serves from the root path — `next.config.mjs` uses no `basePath`. If
+you ever drop the custom domain and serve from `reubenitis.github.io/ElCroco`
+instead, set `NEXT_PUBLIC_BASE_PATH=/ElCroco` for the build.
 
 ## Things to finish
 
