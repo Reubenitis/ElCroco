@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold-line: linear-gradient(90deg, transparent, #c8a86a 50%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: theme("colors.museum");
+  color: theme("colors.graphite");
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: theme("colors.ink");
+  color: theme("colors.museum");
+}
+
+@layer components {
+  /* Museum plaque label — wide-tracked uppercase sans, gallery signage feel */
+  .plaque-label {
+    @apply font-sans uppercase text-ash tracking-plaque;
+    font-size: 0.68rem;
+    font-weight: 500;
+  }
+
+  /* Section eyebrow with a thin gold rule */
+  .eyebrow {
+    @apply plaque-label flex items-center gap-4 text-gold;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 2.25rem;
+    height: 1px;
+    background: theme("colors.gold");
+    display: inline-block;
+  }
+
+  /* Large editorial serif headline */
+  .display {
+    @apply font-serif font-light leading-[0.98] tracking-[-0.01em] text-ink;
+  }
+
+  .hairline {
+    height: 1px;
+    background: theme("colors.line");
+  }
+
+  /* Minimal underline link, fashion-house style */
+  .link-underline {
+    @apply relative font-sans uppercase tracking-plaque text-ink;
+    font-size: 0.7rem;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: theme("colors.ink");
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+}
