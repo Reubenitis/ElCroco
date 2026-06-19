@@ -8,7 +8,7 @@ export default function Album() {
       <div className="mx-auto grid max-w-editorial items-center gap-14 px-6 md:grid-cols-2 md:gap-20 md:px-10">
         {/* The work, framed like a hung piece */}
         <Reveal>
-          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+          <div className="relative mx-auto aspect-[1123/857] w-full max-w-[600px]">
             <div
               className="relative h-full w-full overflow-hidden"
               style={{ boxShadow: "0 50px 70px -30px rgba(20,18,12,0.40)" }}
@@ -17,7 +17,7 @@ export default function Album() {
                 src={ALBUM.cover}
                 alt={`${ALBUM.title} — album artwork`}
                 fill
-                sizes="(max-width: 768px) 90vw, 560px"
+                sizes="(max-width: 768px) 90vw, 600px"
                 className="object-cover"
               />
             </div>
