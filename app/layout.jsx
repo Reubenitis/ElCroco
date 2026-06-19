@@ -19,7 +19,7 @@ const sans = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://reubenitis.github.io/ElCroco/"),
+  metadataBase: new URL("https://elcroco.com"),
   title: `${ARTIST.name} — ${ALBUM.title}`,
   description:
     "EL CROCO — a Miami luxury art brand that happens to release music. ORO PURO, out now.",
