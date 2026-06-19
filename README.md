@@ -60,7 +60,7 @@ instead, set `NEXT_PUBLIC_BASE_PATH=/ElCroco` for the build.
 All marked with `REPLACE` in [`lib/data.js`](lib/data.js):
 
 - **Streaming + social URLs** — Spotify, Apple Music, Instagram, inquiries email.
-- **Croco Dice** photography is in place; swap in final retouched shots anytime.
+- **CrocoDice** photography is in place; swap in final retouched shots anytime.
 - **Track titles** are inferred from artwork filenames — correct as needed.
 
 ## Content

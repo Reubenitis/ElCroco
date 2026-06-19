@@ -26,7 +26,7 @@ export default function Closing() {
           <div className="relative mx-auto aspect-[16/10] w-full max-w-xl">
             <Image
               src="/img/hero/dice.jpg"
-              alt="Croco Dice — final artifact"
+              alt="CrocoDice — final artifact"
               fill
               sizes="(max-width: 768px) 90vw, 576px"
               className="object-contain mix-blend-screen"
