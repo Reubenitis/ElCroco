@@ -6,21 +6,17 @@ export default function Album() {
   return (
     <section id="album" className="bg-museum py-28 md:py-40">
       <div className="mx-auto grid max-w-editorial items-center gap-14 px-6 md:grid-cols-2 md:gap-20 md:px-10">
-        {/* The work, framed like a hung piece */}
+        {/* The work — a transparent product cut-out, floating with a
+            silhouette shadow rather than a hard frame */}
         <Reveal>
-          <div className="relative mx-auto aspect-[1123/857] w-full max-w-[600px]">
-            <div
-              className="relative h-full w-full overflow-hidden"
-              style={{ boxShadow: "0 50px 70px -30px rgba(20,18,12,0.40)" }}
-            >
-              <Image
-                src={ALBUM.cover}
-                alt={`${ALBUM.title} — album artwork`}
-                fill
-                sizes="(max-width: 768px) 90vw, 600px"
-                className="object-cover"
-              />
-            </div>
+          <div className="relative mx-auto aspect-[1083/823] w-full max-w-[620px]">
+            <Image
+              src={ALBUM.cover}
+              alt={`${ALBUM.title} — album artwork`}
+              fill
+              sizes="(max-width: 768px) 90vw, 620px"
+              className="object-contain [filter:drop-shadow(0_30px_38px_rgba(20,18,12,0.30))]"
+            />
           </div>
         </Reveal>
 
